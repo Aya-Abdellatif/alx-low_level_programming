@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
@@ -6,7 +7,6 @@
  * Description: prints if a number is positive or negative.
  * Return: 0
  */
-
 int main(void)
 {
 	int n;
