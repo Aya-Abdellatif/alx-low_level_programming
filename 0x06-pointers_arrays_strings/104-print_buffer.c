@@ -1,48 +1,59 @@
 #include "main.h"
 #include <stdio.h>
+
 /**
- * print_number - print an int numbers
- * @n: number tested
- * Return: Always 0
+ * print_line - prints a s bytes of a buffer
+ * @c: buffer to print
+ * @s: bytes of buffer to print
+ * @l: line of buffer to print
+ * Return: void
  */
-void print_number(int n)
+
+void print_line(char *c, int s, int l)
 {
-	int i, j, digit, digits, power;
-	unsigned int temp, numchar, number;
+	int j, k;
 
-	digit = 0;
-	if (n < 0)
+	for (j = 0; j <= 9; j++)
 	{
-		_putchar('-');
-		temp = -n;
+		if (j <= s)
+			printf("%02x", c[l * 10 + j]);
+		else
+			printf("  ");
+		if (j % 2)
+			putchar(' ');
 	}
-	else
+	for (k = 0; k <= s; k++)
 	{
-		temp = n;
+		if (c[l * 10 + k] > 31 && c[l * 10 + k] < 127)
+			putchar(c[l * 10 + k]);
+		else
+			putchar('.');
 	}
+}
 
+/**
+ * print_buffer - prints a buffer
+ * @b: buffer to print
+ * @size: size of buffer
+ * Return: void
+ */
+void print_buffer(char *b, int size)
+{
+	int i;
 
-	number = temp;
-
-	while (number >= 10)
+	for (i = 0; i <= (size - 1) / 10 && size; i++)
 	{
-		number = number / 10;
-		digit++;
+		printf("%08x: ", i * 10);
+		if (i < size / 10)
+		{
+			print_line(b, 9, i);
+		}
+		else
+		{
+			print_line(b, size % 10 - 1, i);
+		}
+		putchar('\n');
 	}
-	digits = digit + 1;
-	power = 1;
-	i = 1;
-
-	while (i < digits)
-	{
-		power = power * 10;
-		i++;
-	}
-	j = power;
-	while (j >= 1)
-	{
-		numchar = (temp / j) % 10;
-		_putchar(numchar + '0');
-		j = j / 10;
-	}
+	if (size == 0)
+		putchar('\n');
 }
