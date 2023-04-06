@@ -6,16 +6,17 @@
  * @index: index of the nodo
  * Return: list
  */
+
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 {
 	listint_t *new = head;
-	unsigned int i;
+	unsigned int j;
 
 	if (!head)
 		return (0);
-	for (i = 0; new; i++)
+	for (j = 0; new; j++)
 	{
-		if (i == index)
+		if (j == index)
 			return (new);
 		new = new->next;
 	}
