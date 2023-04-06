@@ -5,6 +5,7 @@
  * @n: integer
  * Return: the list whit the new nodo
  */
+
 listint_t *add_nodeint(listint_t **head, const int n)
 {
 	listint_t *new = malloc(sizeof(listint_t));
@@ -15,6 +16,5 @@ listint_t *add_nodeint(listint_t **head, const int n)
 	new->n = n;
 	new->next = *head;
 	*head = new;
-
 	return (*head);
 }
