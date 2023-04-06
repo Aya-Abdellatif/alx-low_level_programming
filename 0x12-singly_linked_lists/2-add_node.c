@@ -10,10 +10,11 @@
  * Return: If the function fails - NULL.
  *         Otherwise - the address of the new element.
  */
+
 list_t *add_node(list_t **head, const char *str)
 {
 	char *dup;
-	int len;
+	int l;
 	list_t *new;
 
 	new = malloc(sizeof(list_t));
@@ -27,11 +28,11 @@ list_t *add_node(list_t **head, const char *str)
 		return (NULL);
 	}
 
-	for (len = 0; str[len];)
-		len++;
+	for (l = 0; str[l];)
+		l++;
 
 	new->str = dup;
-	new->len = len;
+	new->l = l;
 	new->next = *head;
 
 	*head = new;
