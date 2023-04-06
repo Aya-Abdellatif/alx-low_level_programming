@@ -7,15 +7,15 @@
  *
  * Return: The number of elements in h.
  */
+
 size_t list_len(const list_t *h)
 {
-	size_t elements = 0;
+	size_t e = 0;
 
-	while (h)
+	while (h != NULL)
 	{
-		elements++;
+		e++;
 		h = h->next;
 	}
-
-	return (elements);
+	return (e);
 }
