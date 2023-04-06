@@ -6,11 +6,12 @@
  *
  * Return: suma
  */
+
 int sum_listint(listint_t *head)
 {
 	int sum = 0;
 
-	if (head != NULL)
+	if (head)
 	{
 		while (head->next != NULL)
 		{
